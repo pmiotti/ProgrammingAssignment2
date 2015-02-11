@@ -13,10 +13,10 @@ makeCacheMatrix <- function(the.matrix = matrix()) {
         
         get <- function() the.matrix
         
+        ## returns the inverse of the matrix 
+        ## if cache is valid then it returns the cached value
         get.inverse.matrix <- function() {
-                if (!is.null(inverse.matrix)) {
-                        message("getting cached inverse matrix")
-                } else {
+                if (is.null(inverse.matrix)) {
                         inverse.matrix <<- solve(the.matrix)
                 }
                 inverse.matrix
